@@ -5,12 +5,12 @@
 ### Option A: Using GitHub CLI
 ```bash
 # Install GitHub CLI if not already installed
-# Then create repository under Kohler Apps organization
-gh repo create kohler-apps/balance-fit-gitops --public --description "Balance-fit GitOps repository for ArgoCD deployment"
+# Then create repository under your GitHub account
+gh repo create rich-p-ai/balance-fit-gitops --public --description "Balance-fit GitOps repository for ArgoCD deployment"
 ```
 
 ### Option B: Using GitHub Web Interface
-1. Go to https://github.com/orgs/kohler-apps/repositories
+1. Go to https://github.com/rich-p-ai
 2. Click "New repository"
 3. Repository name: `balance-fit-gitops`
 4. Description: "Balance-fit GitOps repository for ArgoCD deployment"
@@ -23,7 +23,7 @@ gh repo create kohler-apps/balance-fit-gitops --public --description "Balance-fi
 ```bash
 # Add GitHub remote (replace URL with actual repository URL)
 cd "C:\work\OneDrive - Kohler Co\Openshift\balance-fit-gitops"
-git remote add origin https://github.com/kohler-apps/balance-fit-gitops.git
+git remote add origin https://github.com/rich-p-ai/balance-fit-gitops.git
 
 # Push to main branch
 git branch -M main
