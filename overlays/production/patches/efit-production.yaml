@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: efit
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+      - name: efit
+        env:
+        - name: ENVIRONMENT
+          value: production
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "200m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"

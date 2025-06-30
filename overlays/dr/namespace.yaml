@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: balance-fit-dr
+  labels:
+    name: balance-fit-dr
+    environment: dr
+    app.kubernetes.io/name: balance-fit
+    app.kubernetes.io/part-of: balance-fit-stack
+  annotations:
+    openshift.io/description: "Balance-fit Disaster Recovery Environment"
+    openshift.io/display-name: "Balance-fit DR"

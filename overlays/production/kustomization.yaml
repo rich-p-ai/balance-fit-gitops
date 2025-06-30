@@ -1,0 +1,59 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+metadata:
+  name: balance-fit-production
+
+namespace: balance-fit-prd
+
+resources:
+  - ../../base
+  - namespace.yaml
+  - route.yaml
+  - secrets/mysql-secret.yaml
+
+patches:
+  - path: patches/nginx-production.yaml
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: nginx
+  - path: patches/efit-production.yaml
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: efit
+
+# Production-specific resource requirements
+patchesStrategicMerge:
+  - |-
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: app-data
+    spec:
+      resources:
+        requests:
+          storage: 20Gi
+  - |-
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: mysql-data
+    spec:
+      resources:
+        requests:
+          storage: 50Gi
+
+commonLabels:
+  environment: production
+  
+commonAnnotations:
+  environment: production
+  cluster: ocp-prd
+  
+images:
+  - name: quay.apps.ocp.kohlerco.com/kohler-base-images/efit
+    newTag: "latest"

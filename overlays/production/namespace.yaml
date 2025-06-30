@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: balance-fit-prd
+  labels:
+    name: balance-fit-prd
+    environment: production
+    app.kubernetes.io/name: balance-fit
+    app.kubernetes.io/part-of: balance-fit-stack
+  annotations:
+    openshift.io/description: "Balance-fit Production Environment"
+    openshift.io/display-name: "Balance-fit Production"
