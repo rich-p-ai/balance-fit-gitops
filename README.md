@@ -5,7 +5,8 @@ This repository contains the Kubernetes manifests for the Balance-fit applicatio
 ## Project Information
 
 - **Organization**: Kohler Apps
-- **Project**: Balance-fit
+- **Project**: Balance-fit  
+- **Repository**: https://github.com/rich-p-ai/balance-fit-gitops
 - **Environment**: Production OpenShift Cluster + DR Cluster
 - **Deployment Tool**: ArgoCD
 - **Configuration Management**: Kustomize

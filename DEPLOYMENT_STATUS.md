@@ -67,9 +67,9 @@ Internet → OpenShift Route → nginx Service → nginx Pod → efit Service �
 
 ### 1. Create GitHub Repository
 ```bash
-# Follow instructions in GITHUB_SETUP.md
-gh repo create kohler-apps/balance-fit-gitops --public
-git remote add origin https://github.com/kohler-apps/balance-fit-gitops.git
+# ✅ COMPLETED - Repository created at:
+# https://github.com/rich-p-ai/balance-fit-gitops
+git remote add origin https://github.com/rich-p-ai/balance-fit-gitops.git
 git push -u origin main
 ```
 
@@ -80,7 +80,7 @@ kubectl apply -k overlays/production/
 
 # Or using ArgoCD
 argocd app create balance-fit-prod \
-  --repo https://github.com/kohler-apps/balance-fit-gitops \
+  --repo https://github.com/rich-p-ai/balance-fit-gitops \
   --path overlays/production \
   --dest-namespace balance-fit-prd
 ```
