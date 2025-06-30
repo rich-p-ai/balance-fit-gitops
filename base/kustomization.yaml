@@ -1,0 +1,44 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+metadata:
+  name: balance-fit-base
+
+commonLabels:
+  app.kubernetes.io/name: balance-fit
+  app.kubernetes.io/part-of: balance-fit-stack
+
+resources:
+  # nginx web server
+  - nginx/deployment.yaml
+  - nginx/service.yaml
+  - nginx/configmap.yaml
+  
+  # PHP application
+  - php-app/deployment.yaml
+  - php-app/service.yaml
+  
+  # MySQL database
+  - mysql/deployment.yaml
+  - mysql/service.yaml
+  - mysql/configmap.yaml
+  
+  # Storage
+  - storage/app-data-pvc.yaml
+  - storage/mysql-data-pvc.yaml
+
+# Common configurations
+images:
+  - name: nginxinc/nginx-unprivileged
+    newTag: "1.25-alpine"
+  - name: registry.redhat.io/rhel8/mysql-80
+    newTag: "latest"
+
+# Resource naming
+namePrefix: ""
+nameSuffix: ""
+
+# Common annotations
+commonAnnotations:
+  app.kubernetes.io/version: "1.0.0"
+  app.kubernetes.io/managed-by: "argocd"
