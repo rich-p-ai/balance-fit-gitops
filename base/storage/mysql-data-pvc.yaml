@@ -7,8 +7,7 @@ metadata:
     component: storage
 spec:
   accessModes:
-  - ReadWriteOnce
-  resources:
+  - ReadWriteOnce  resources:
     requests:
       storage: 10Gi
-  storageClassName: gp3-csi
+  storageClassName: ocs-storagecluster-ceph-rbd

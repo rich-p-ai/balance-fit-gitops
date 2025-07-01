@@ -37,6 +37,7 @@ patchesStrategicMerge:
       resources:
         requests:
           storage: 20Gi
+      storageClassName: ocs-storagecluster-ceph-rbd
   - |-
     apiVersion: v1
     kind: PersistentVolumeClaim
@@ -46,6 +47,7 @@ patchesStrategicMerge:
       resources:
         requests:
           storage: 50Gi
+      storageClassName: ocs-storagecluster-ceph-rbd
 
 commonLabels:
   environment: production
